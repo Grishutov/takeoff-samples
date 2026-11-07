@@ -9,7 +9,7 @@ Samples of my quantity takeoff and drafting work. Client work is under NDA, so t
 | [3. Painting takeoff, residence bedroom wing](#3-painting-takeoff---residence-bedroom-wing) | Finishes takeoff, markup | `Painting_Takeoff_*` |
 | [4. Scanned plan to a clean DWG](#4-scanned-plan-to-a-clean-dwg) | AutoCAD redraw: layers, blocks, dimensions | `scan-to-dwg/` |
 | [5. US residential permit sheet](#5-us-residential-permit-sheet) | AutoCAD drafting | `SMP-1_*.pdf` |
-| [6. Drywall and ceilings, public office fit-out (real bid set)](#6-drywall-and-ceilings---public-office-fit-out-madison-wi) | Partitions by type, GWB, framing, ACT, US units | `dane-county-ti/` |
+| [6. Drywall and ceilings, public office fit-out (real bid set)](#6-drywall-and-ceilings---public-office-fit-out-madison-wi) | Partitions by type, GWB, framing, ACT, US units | `DaneCounty_TI_*` |
 
 ## 1. Structural steel takeoff - portal-frame shed
 A 24 x 12 m machinery shed (sample A3 framing sheet) measured the way steel fabricators ask for it: steel members only, plates, bolts and nuts excluded.
@@ -77,20 +77,20 @@ The scan was deskewed and scaled to the 40'-0" overall dimension, then checked a
 ## 6. Drywall and ceilings - public office fit-out, Madison WI
 A real public bid set: tenant improvements on the third floor of the City-County Building in Madison, Wisconsin (Dane County Public Works, RFB 108049, 2008; 26 sheets at 24x36). Measured the way a drywall and ceiling contractor prices it.
 
-- `dane-county-ti/DaneCounty_TI_Drywall_Takeoff.xlsx`:
+- `DaneCounty_TI_Drywall_Takeoff.xlsx`:
   - **Partitions**: 78 wall runs in 9 types from the enlarged plans A2.1-A2.3; doors from the A7.0 schedule deducted on every face and layer
   - **Ceilings**: room by room from the reflected ceiling plan A3.0 and the finish schedule A9.0, with ACT tiles, main and cross tees, wall angle and hanger wires
   - **Types**: partition types from A7.0 with layers, studs and batts; change one height and every run updates
   - **Summary**: board sheets, studs and track by size, batts, bead and finishing, ceilings, and the checks
   - **Notes & Queries**: measuring rules, exclusions and 15 queries to the client
-- `dane-county-ti/DaneCounty_TI_Drywall_Markup.pdf`: colour markup on sheets A2.1-A2.3 and A3.0, every run with its ID and type
+- `DaneCounty_TI_Drywall_Markup.pdf`: colour markup on sheets A2.1-A2.3 and A3.0, every run with its ID and type
 
 Totals: 686 LF of new partitions in 9 types, 12,284 SF of GWB net of openings, 8,215 SF of ACT, 21 doors deducted.
 
 Checks: lengths taken from the PDF vector linework, not scaled by eye; scale checked on three sheets. Ceilings measured room by room and again as one outline (the 6.5 % difference is the wall footprint). Partition lengths checked against half the length of all wall face lines.
 
-![Partition markup](images/DC1_partitions_markup.png)
-![Ceiling markup](images/DC2_ceilings_markup.png)
-![Takeoff summary](images/DC3_summary.png)
+![Partition markup](DC1_partitions_markup.png)
+![Ceiling markup](DC2_ceilings_markup.png)
+![Takeoff summary](DC3_summary.png)
 
 Drawings: Dane County Public Works, RFB 108049 (2008), public bid documents. Only the four measured sheets are included.
