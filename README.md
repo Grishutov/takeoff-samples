@@ -1,15 +1,17 @@
 # Takeoff samples
 
-Samples of my quantity takeoff and drafting work. All drawings are public or fictitious. No client information.
+Samples of my quantity takeoff and drafting work. Client work is under NDA, so these use public drawings or sample drawings I prepared. No client information.
 
 | Sample | Type | Files |
 | --- | --- | --- |
 | [1. Structural steel takeoff, portal-frame shed](#1-structural-steel-takeoff---portal-frame-shed) | Steel member list, weights, markup | `steel-shed/` |
-| [2. Painting takeoff, residence bedroom wing](#2-painting-takeoff---residence-bedroom-wing) | Finishes takeoff, markup | `Painting_Takeoff_*` |
-| [3. US residential permit sheet](#3-us-residential-permit-sheet) | AutoCAD drafting | `SMP-1_*.pdf` |
+| [2. Drywall and ceiling takeoff, office fit-out](#2-drywall-and-ceiling-takeoff---office-fit-out-us-units) | Partitions, GWB, framing, ACT and grid, US units | `drywall-office/` |
+| [3. Painting takeoff, residence bedroom wing](#3-painting-takeoff---residence-bedroom-wing) | Finishes takeoff, markup | `Painting_Takeoff_*` |
+| [4. Scanned plan to a clean DWG](#4-scanned-plan-to-a-clean-dwg) | AutoCAD redraw: layers, blocks, dimensions | `scan-to-dwg/` |
+| [5. US residential permit sheet](#5-us-residential-permit-sheet) | AutoCAD drafting | `SMP-1_*.pdf` |
 
 ## 1. Structural steel takeoff - portal-frame shed
-A fictitious 24 x 12 m machinery shed (A3 framing sheet) measured the way steel fabricators ask for it: steel members only, plates, bolts and nuts excluded.
+A 24 x 12 m machinery shed (sample A3 framing sheet) measured the way steel fabricators ask for it: steel members only, plates, bolts and nuts excluded.
 
 - `steel-shed/S1_Machinery_Shed_Framing.pdf`: the drawing
 - `steel-shed/S1_Machinery_Shed_Takeoff_Markup.pdf`: every member colour-coded by type, count tags, legend with totals
@@ -20,7 +22,26 @@ A fictitious 24 x 12 m machinery shed (A3 framing sheet) measured the way steel 
 
 Built with my [steel-takeoff-tools](https://github.com/Grishutov/steel-takeoff-tools).
 
-## 2. Painting takeoff - residence, bedroom wing
+## 2. Drywall and ceiling takeoff - office fit-out, US units
+A 2,400 SF office suite fit-out (sample set: A-101 partition plan and A-201 reflected ceiling plan, 11x17) measured the way drywall and ceiling contractors price it.
+
+- `drywall-office/A-101_A-201_Suite_210_Fit-Out.pdf`: the drawings
+- `drywall-office/Drywall_Takeoff_Markup.pdf`: every wall run colour-coded by partition type with its run ID, openings deducted, ceilings coloured by type with areas
+- `drywall-office/Drywall_Takeoff_Suite_210.xlsx`:
+  - **Partitions**: 15 runs with length, height, faces, openings, net GWB SF, studs, track and sound batts
+  - **Ceilings**: room by room, with ACT tiles, main and cross tees, wall angle and hanger wires
+  - **Soffit & Misc**: GWB soffit, returns and corner bead
+  - **Summary**: board sheets, studs and track by size, insulation, ceiling materials, an area check against the overall dimensions
+  - **Notes & Queries**: measuring rules, exclusions and four queries to the client
+
+Totals: 318 LF of partitions, 5,286 SF of net GWB on walls, 2,200 SF of ACT and 128 SF of GWB ceilings. Every quantity is a live formula, so changing a height, a partition type or a waste factor updates the counts.
+
+![Partition takeoff markup](images/D1_partition_markup.png)
+![Ceiling takeoff markup](images/D2_rcp_markup.png)
+![Partitions sheet](images/D4_partitions_sheet.png)
+![Takeoff summary](images/D3_takeoff_summary.png)
+
+## 3. Painting takeoff - residence, bedroom wing
 Source drawing: the public example floor plan from the New Zealand MBIE "Guide to applying for a building consent" (2007).
 
 - `Painting_Takeoff_Bedroom_Wing.xlsx`: room-by-room takeoff of walls, ceilings, doors, trims and openings. Every line is referenced to the drawing; assumptions, items not painted and clarifications are on separate sheets.
@@ -30,7 +51,24 @@ Measured to NZ painting practice: m² and lm, openings over 0.5 m² deducted. Th
 
 ![Painting takeoff markup](images/P1_markup.png)
 
-## 3. US residential permit sheet
-- `SMP-1_Kitchen_Riser_Panel_Schedule.pdf`: 11x17 sheet plotted from AutoCAD with kitchen DWV and water supply riser isometrics, electrical riser, 24-space panel schedule and NEC 220.83(A) service load calculation. Fictitious project data, not for construction.
+## 4. Scanned plan to a clean DWG
+An old-style blue-line house plan (sample drawing), scanned at an angle and slightly stretched, with a fold and stains. Redrawn as a clean AutoCAD drawing that someone else can work with.
+
+- `scan-to-dwg/Original_Scan_Plan_62-114.jpg`: the scan
+- `scan-to-dwg/A-101_As-Built_Floor_Plan.dwg` (AutoCAD 2018) and `.dxf`: the redraw
+- `scan-to-dwg/A-101_As-Built_Floor_Plan.pdf`: the 11x17 sheet
+
+The drawing has:
+- model space at 1:1 in architectural units
+- layers A-WALL, A-DOOR, A-GLAZ, A-ANNO-TEXT, A-ANNO-DIMS and A-ANNO-NOTE
+- doors and windows as blocks, so they can be counted
+- true dimensions, and room names with clear sizes
+
+The scan was deskewed and scaled to the 40'-0" overall dimension, then checked against the 28'-0" one. The method is in my guide [PDF or image to a clean DWG](https://github.com/Grishutov/cad-guides/blob/main/pdf-to-dwg.md).
+
+![Before and after](images/T1_before_after.jpg)
+
+## 5. US residential permit sheet
+- `SMP-1_Kitchen_Riser_Panel_Schedule.pdf`: 11x17 sheet plotted from AutoCAD with kitchen DWV and water supply riser isometrics, electrical riser, 24-space panel schedule and NEC 220.83(A) service load calculation. Sample project data, not for construction.
 
 ![Permit sheet sample](images/F1_sheet.png)
