@@ -1,6 +1,6 @@
 # Takeoff samples
 
-Samples of my quantity takeoff and drafting work. Client work is under NDA, so these use public bid drawings or sample drawings I prepared. No client information.
+Samples of my quantity takeoff, earthworks and drafting work. Client work is under NDA, so these use public bid drawings or sample drawings I prepared. No client information.
 
 | Sample | Type | Files |
 | --- | --- | --- |
@@ -10,6 +10,7 @@ Samples of my quantity takeoff and drafting work. Client work is under NDA, so t
 | [4. Scanned plan to a clean DWG](#4-scanned-plan-to-a-clean-dwg) | AutoCAD redraw: layers, blocks, dimensions | `scan-to-dwg/` |
 | [5. US residential permit sheet](#5-us-residential-permit-sheet) | AutoCAD drafting | `SMP-1_*.pdf` |
 | [6. Drywall and ceilings, public office fit-out (real bid set)](#6-drywall-and-ceilings---public-office-fit-out-madison-wi) | Partitions by type, GWB, framing, ACT, US units | `DaneCounty_TI_*` |
+| [7. Earthwork cut and fill, commercial site](#7-earthwork-cut-and-fill---commercial-site-us-units) | Survey to surfaces, cut/fill volumes by three methods (Excel, DWG, PDF) | `Earthworks_*`, `E1-E3` |
 
 ## 1. Structural steel takeoff - portal-frame shed
 A 24 x 12 m machinery shed (sample A3 framing sheet) measured the way steel fabricators ask for it: steel members only, plates, bolts and nuts excluded.
@@ -94,3 +95,38 @@ Checks: lengths taken from the PDF vector linework, not scaled by eye; scale che
 ![Takeoff summary](DC3_summary.png)
 
 Drawings: Dane County Public Works, RFB 108049 (2008), public bid documents. Only the four measured sheets are included.
+
+## 7. Earthwork cut and fill - commercial site, US units
+A small commercial site, 300 x 220 ft, sloping 4 to 7 % with a shallow swale, a gravel drive along one side and a small bank. From a topo survey and a grading design to cut and fill volumes for a building pad and parking. Sample survey data prepared for this portfolio.
+
+- `Survey_Points_PNEZD.csv`: 667 survey points (PNEZD) with codes TOPO, EP, FL, TB, TOE, TREE and two control points. Imports into Civil 3D or AutoCAD.
+- `Earthworks_Sample.dwg` (AutoCAD 2018) and `Earthworks_Sample.dxf` (R12), survey grid, 1:1 in feet:
+  - 3D survey points with numbers and elevations, breaklines, existing contours at 1 and 5 ft
+  - pad, parking, daylight line, proposed subgrade contours and the 0-line
+  - the 25 ft volume grid with the depth at every corner and the volume of every cell
+  - 9 sections at true scale with their cut and fill areas
+- `Earthworks_Volumes.xlsx`:
+  - **Summary**: design inputs, volumes, topsoil, shrink, net import or export, and the method check
+  - **Grid**: 88 grid corners and the 25 ft cells; the subgrade at each corner is a live formula of the design inputs
+  - **Sections**: average end areas along the baseline
+  - **Points**: the raw survey
+  - **Notes & Queries**: assumptions, exclusions and five queries to the client
+- `Earthworks_Sheet.pdf`: two 11x17 sheets, the cut/fill plan with volumes and the sections with the end-area table
+
+Design: building pad 80 x 120 ft, FFE 103.80, subgrade 0.50 ft below FFE. Parking 120 x 120 ft at a 2 % cross slope, subgrade 0.67 ft below finished grade (8 in pavement). Side slopes 3:1 to daylight. The FFE was chosen so that cut and fill come close to balance.
+
+Volumes from existing ground to subgrade, three ways:
+
+| Method | Cut (CY) | Fill (CY) | Difference from TIN |
+| --- | ---: | ---: | --- |
+| TIN to TIN (main result) | 1,302 | 632 | - |
+| Grid, 25 ft cells | 1,277 | 628 | cut -1.9 %, fill -0.6 % |
+| Average end area, sections every 50 ft | 1,323 | 625 | cut +1.6 %, fill -1.0 % |
+
+Topsoil strip of 0.50 ft over 30,557 SF: 566 CY, a separate item. After the strip and a 15 % shrink factor the earthwork needs a 48 CY import.
+
+Checks: the breaklines are edges of the TIN; every survey point was compared with a TIN built without it, and there are no spikes; the Excel totals match the model. Surfaces and volumes were computed with Python. The steps follow my guide [Cut and fill volumes](https://github.com/Grishutov/cad-guides/blob/main/cut-and-fill.md).
+
+![Cut/fill plan](E1_cutfill_map.png)
+![Sections](E2_sections.png)
+![Volume summary](E3_volumes_summary.png)
